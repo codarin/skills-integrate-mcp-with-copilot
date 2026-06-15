@@ -8,8 +8,22 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-copy">
+        <h1>Mergington High School</h1>
+        <h2>Extracurricular Activities</h2>
+      </div>
+      <div class="header-actions">
+        <span id="auth-status-pill" class="auth-status-pill">Guest mode</span>
+        <div class="auth-menu-wrap">
+          <button id="auth-menu-button" class="icon-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="auth-menu">
+            👤
+          </button>
+          <div id="auth-menu" class="auth-menu hidden" role="menu">
+            <button id="open-login-button" type="button">Login as teacher</button>
+            <button id="logout-button" type="button" class="secondary hidden">Logout</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -23,6 +37,7 @@
 
       <section id="signup-container">
         <h3>Sign Up for an Activity</h3>
+        <p id="signup-hint" class="helper-text">Teacher login is required to register or unregister students. Guests can still view the participant list.</p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -40,6 +55,27 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <div id="auth-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="modal-header">
+          <h3 id="auth-modal-title">Teacher Login</h3>
+          <button id="close-auth-modal" type="button" class="icon-button secondary">✕</button>
+        </div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required placeholder="mrs_jones" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required placeholder="Enter password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <div id="auth-message" class="hidden"></div>
+      </div>
+    </div>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
